@@ -1,18 +1,12 @@
-instalar_carregar_pacotes <- function(pkg){
+installa_load_packages <- function(pkg){
   new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
   if (length(new.pkg)) 
     install.packages(new.pkg, dependencies = TRUE)
   sapply(pkg, require, character.only = TRUE)
 }
 
-# alterar caminho da variável de ambiente do python
-Sys.setenv(MLFLOW_BIN="./venv/Scripts/mlflow")
-
-# alterar caminho da variável de ambiente do python
-Sys.setenv(MLFLOW_PYTHON_BIN="./venv/Scripts/python")
-
 # lista de pacotes necessários
-pacotes <- c("sparklyr", 
+packages <- c("sparklyr", 
              "ggcorrplot",
              "dplyr", 
              "caret",
@@ -25,4 +19,4 @@ pacotes <- c("sparklyr",
              "glue")
 
 # instalar e carregar os pacotes
-instalar_carregar_pacotes(pacotes)
+installa_load_packages(pacotes)
