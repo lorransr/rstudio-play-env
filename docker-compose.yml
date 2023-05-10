@@ -1,6 +1,6 @@
 services:
   rstudio:
-    build: 
+    build:
       context: .
       dockerfile: rstudio.Dockerfile
     ports:
